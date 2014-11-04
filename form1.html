@@ -1,0 +1,90 @@
+<?php
+
+require("Usuario.php");
+///*$usuario->readUsuarioS(1);
+//$usuario->updateUsuario(13,'julio','angel', 'maldonado',1);
+//$usuario->deleteUsuario(17);
+
+
+
+if (isset($_POST['submit'])){
+ switch ($_POST['submit']){
+    case "Alta":
+        echo"<div class=\"alert alert-danger\" role=alert>";
+        echo "<br>Bot&oacute;n:" . $_POST['submit'];
+        echo"</div>"
+        $usuario->CreateUsuario("$_POST[nombre]","$_POST[apellidop]","$_POST[apellidom]", $_POST['nivel'];
+        break;
+   case "Borrar":
+        echo"<div class=\"alert alert-info\" role=alert>";
+        echo "<br>Bot&oacute;n:" . $_POST['submit']
+        echo"</div>";
+        $usuario->deleteUsuario($_POST['idb']);
+        break;
+
+    case "Modificar":
+        echo"<div class="\alert alert-success\" role=alert>";
+        echo "<br>Bot&oacute;n:" . $_POST['submit']
+        echo"</div>";
+        break;
+
+    case "Buscar":
+        echo"<div calss=\"alert alert-warning\" role=alert>";
+        echo "<br>Bot&oacute;n:" . $_POST['submit']
+        echo"</div>";
+
+        $usuario->readUsuarioS($_POST['idbuscar']);
+        break;
+
+        }
+
+     }
+
+        ?>
+<html>
+<form action="TestUsuario.php" method='GET'>
+</br>
+	<li>
+     <label>Nombre:</label>
+	<input type='text' name="nombre" size='30'>
+	</li></br>
+	<li>
+     <label>Apellido P:</label>
+	<input type='text'  name="apellido_paterno" size='30'>
+	</li></br>
+	<li>
+     <label>Apellido M:</label>
+	<input type='text'  name="apellido_materno" size='30'>
+	</li></br>
+	<li>
+     <label>Nivel:</label>
+	<input type='text' size='30'>
+	</li></br>
+	<li>
+        <select name='nivel'><label>Nivel:</label>
+        <option value="1">administrador</option>
+        <option value="2">maestro</option>
+        <option value="3">alumno</option>
+        </select>
+        </li></br>
+    <li>
+	<input  type='submit' name="submit" value='Alta'>
+	</li>
+	
+<br>
+<br>
+    <label>ID:</label>
+	<input type='text' size='30'>
+	</li></br>
+	<label>ID:</label>
+	<input type='text' size='30'>
+	</li></br>
+	<label>Buscar:</label>
+	<input type='text' size='30'>
+	</li></br>
+    <li>
+	<input class='rounded1 boton' type='submit' value='Buscar'>
+	</li>
+</ul>
+</form>
+</html>
